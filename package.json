@@ -1,6 +1,6 @@
 {
   "name": "console-from",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "changes console log and console error massages and add the location the console was called",
   "main": "index.js",
   "scripts": {
