@@ -1,7 +1,7 @@
 {
   "name": "console-from",
-  "version": "1.0.4",
-  "description": "add the location of console log and console error where called from",
+  "version": "1.0.5",
+  "description": "changes console log and console error massages and add the location the console was called",
   "main": "index.js",
   "scripts": {
     "publish-bump": " npm update ; npm  --no-git-tag-version version patch ; npm publish",
