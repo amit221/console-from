@@ -1,6 +1,6 @@
 {
   "name": "console-from",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "add the location of console log and console error where called from",
   "main": "index.js",
   "scripts": {
