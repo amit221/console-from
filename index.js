@@ -8,7 +8,7 @@ const addLocation = (args) => {
         return args
     }
     return args.map(val => {
-        if (typeof val === 'string') {
+        if (typeof val === 'string' || typeof val === 'boolean' || Array.isArray(val) === true ) {
             return trace[traceIndex].getFileName() + ":" + trace[traceIndex].getLineNumber() + "\n" + val;
         }
         else if (typeof val === 'object' && Array.isArray(val) === false && val !== null  ) {
