@@ -1,13 +1,21 @@
 const stackTrace = require('stack-trace');
 
-const addLocation = (...args) => {
+const traceIndex = 2;
+
+const addLocation = (args) => {
     const trace = stackTrace.get();
+    if(trace.length < 3){
+        return args
+    }
     return args.map(val => {
+
         if (typeof val === 'string') {
-            val += trace[1].getFileName() + " line:" + trace[1].getLineNumber();
+            return trace[traceIndex].getFileName() + ":" + trace[traceIndex].getLineNumber() + "\n" + val;
         }
-        else if (typeof val === 'object' && Array.isArray(val) === false && val !== null) {
-            val.consoleTrace = trace[1].getFileName() + " line:" + trace[1].getLineNumber();
+        else if (typeof val === 'object' && Array.isArray(val) === false && val !== null && val instanceof Error === false  ) {
+            const clone = JSON.parse(JSON.stringify(val));
+            clone.consoleTrace = trace[traceIndex].getFileName() + ":" + trace[traceIndex].getLineNumber();
+            return val;
         }
         return val;
     });
