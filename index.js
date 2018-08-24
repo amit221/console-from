@@ -1,30 +1,20 @@
 const stackTrace = require('stack-trace');
-
 const traceIndex = 2;
+const path = require('path');
+
+const dirname = path.resolve(__dirname);
+const deletePath = dirname.substr(0, dirname.indexOf('node_modules'));
 
 const addLocation = (args) => {
     const trace = stackTrace.get();
-    if(trace.length < 3){
-        return args
+    if (trace.length < 3) {
+        return args;
     }
-    return args.map(val => {
-        if (typeof val === 'string' || typeof val === 'boolean' || Array.isArray(val) === true ) {
-            return trace[traceIndex].getFileName() + ":" + trace[traceIndex].getLineNumber() + "\n" + val;
-        }
-        else if (typeof val === 'object' && Array.isArray(val) === false && val !== null  ) {
-            if(val instanceof Error === false ){
 
-                const clone = JSON.parse(JSON.stringify(val));
-                clone.consoleFrom = trace[traceIndex].getFileName() + ":" + trace[traceIndex].getLineNumber();
-                return clone;
-            }
-            else{
-                val.consoleFrom =  trace[traceIndex].getFileName() + ":" + trace[traceIndex].getLineNumber();
-            }
+    const currentFile = trace[traceIndex].getFileName().replace(deletePath, '');
+    tempConsoleLog("\x1b[36m%s\x1b[0m", currentFile + ":" + trace[traceIndex].getLineNumber());
 
-        }
-        return val;
-    });
+    return args;
 };
 
 
