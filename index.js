@@ -32,6 +32,6 @@ global.console.error = function (...args) {
 const tempConsoleLog = console.log;
 
 global.console.log = function (...args) {
-    args = addLocation(args);
+    addLocation(args);
     tempConsoleLog.apply(console, args);
 };
