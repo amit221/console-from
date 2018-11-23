@@ -1,12 +1,11 @@
 {
   "name": "console-from",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "changes console log and console error massages and add the location the console was called",
   "main": "index.js",
   "scripts": {
     "publish-bump": " npm update ; npm  --no-git-tag-version version patch ; npm publish",
     "publish-bump-win": " npm update & npm  --no-git-tag-version version patch & npm publish",
-
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
