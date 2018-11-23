@@ -1,3 +1,7 @@
+if (process.env.CONSOLE_FROM === "true") { // use CONSOLE_FROM env to disable the package
+    return;
+}
+
 const stackTrace = require('stack-trace');
 const traceIndex = 2;
 const path = require('path');
