@@ -7,6 +7,6 @@ works on NodeJS version 6+,
 
 <h2>Instructions</h2>
 <li>include the package on your main script</li>
-<li>to disbale it, set CONSOLE_FROM to false in the enviorment variables </li>
+<li>to enable it, set CONSOLE_FROM to true in the enviorment variables </li>
 
 
